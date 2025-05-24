@@ -2,53 +2,97 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Play, Image as ImageIcon } from "lucide-react";
+import { useState } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export const Projects = () => {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
   const projects = [
     {
       title: "Palligemma Multi-Modal Model",
       description: "Integrated text and image data using a multi-modal model designed to process and generate outputs based on both input types.",
       achievements: ["Fine-tuned to achieve over 75% accuracy", "Multi-modal input processing", "Advanced output generation"],
-      tags: ["Multi-Modal", "Computer Vision", "NLP", "Fine-tuning"]
+      tags: ["Multi-Modal", "Computer Vision", "NLP", "Fine-tuning"],
+      media: [
+        { type: "image", url: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7", alt: "AI model visualization" },
+        { type: "video", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7" }
+      ]
     },
     {
       title: "LLaMA2 from Scratch",
       description: "Built complete LLaMA2 model from scratch, incorporating all key components and fine-tuning for sentiment analysis.",
       achievements: ["Built from scratch implementation", "Achieved over 92% accuracy", "Custom sentiment analysis fine-tuning"],
-      tags: ["LLaMA", "Transformer", "Sentiment Analysis", "PyTorch"]
+      tags: ["LLaMA", "Transformer", "Sentiment Analysis", "PyTorch"],
+      media: [
+        { type: "image", url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b", alt: "Code implementation" },
+        { type: "video", url: "https://www.youtube.com/embed/YDgUkQJL5h0", thumbnail: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" }
+      ]
     },
     {
       title: "Soccer AI with YOLOv8x",
       description: "Developed comprehensive Soccer AI system for real-time player and keypoint detection in soccer analysis.",
       achievements: ["95%+ precision and 85% recall for player detection", "99% precision and recall for keypoint detection", "Real-time processing"],
-      tags: ["YOLOv8", "Computer Vision", "Real-time", "Sports Analytics"]
+      tags: ["YOLOv8", "Computer Vision", "Real-time", "Sports Analytics"],
+      media: [
+        { type: "video", url: "https://www.youtube.com/embed/SSEpWXZrY0I", thumbnail: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6" },
+        { type: "image", url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6", alt: "Soccer player detection" }
+      ]
     },
     {
       title: "Customer Waiting Time Analysis",
       description: "Analyzed customer behavior at cashier counters and vehicle traffic patterns using computer vision techniques.",
       achievements: ["Real-time object detection and tracking", "Zone-based monitoring system", "Traffic flow analysis"],
-      tags: ["YOLOv8", "Object Tracking", "Analytics", "Computer Vision"]
+      tags: ["YOLOv8", "Object Tracking", "Analytics", "Computer Vision"],
+      media: [
+        { type: "image", url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158", alt: "Traffic analysis visualization" },
+        { type: "video", url: "https://www.youtube.com/embed/BLFeqq8Fags", thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" }
+      ]
     },
     {
       title: "Naruto Shippuden AI Suite",
       description: "Comprehensive suite of AI models including Character Chatbot, Network Analysis, and Theme Classification for the Naruto series.",
       achievements: ["Character conversation simulation", "Relationship network analysis", "Theme identification system", "Text classification"],
-      tags: ["Chatbot", "NLP", "Character AI", "Text Classification"]
+      tags: ["Chatbot", "NLP", "Character AI", "Text Classification"],
+      media: [
+        { type: "image", url: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5", alt: "Network analysis visualization" }
+      ]
     },
     {
       title: "Ticket Support Classifier",
       description: "Advanced machine learning pipeline for automated ticket classification with comprehensive data preprocessing.",
       achievements: ["90% F1 score achievement", "Zero-shot and Few-shot learning", "Advanced preprocessing pipeline", "Multiple model implementation"],
-      tags: ["BERT", "T5", "LLaMA", "Classification", "MLOps"]
+      tags: ["BERT", "T5", "LLaMA", "Classification", "MLOps"],
+      media: [
+        { type: "image", url: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7", alt: "Classification results" }
+      ]
     },
     {
       title: "CLIP Implementation",
       description: "Comprehensive CLIP model implementation built from scratch using PyTorch with interactive Colab demo.",
       achievements: ["Complete from-scratch implementation", "PyTorch implementation", "Interactive demo development"],
-      tags: ["CLIP", "Multi-Modal", "PyTorch", "Computer Vision"]
+      tags: ["CLIP", "Multi-Modal", "PyTorch", "Computer Vision"],
+      media: [
+        { type: "video", url: "https://www.youtube.com/embed/1NCvZY6tLNc", thumbnail: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81" },
+        { type: "image", url: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81", alt: "CLIP model architecture" }
+      ]
     }
   ];
+
+  const handleOpenVideo = (videoUrl: string) => {
+    setActiveVideo(videoUrl);
+  };
+
+  const handleCloseVideo = () => {
+    setActiveVideo(null);
+  };
 
   return (
     <section id="projects" className="py-20 px-4">
@@ -60,7 +104,7 @@ export const Projects = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-pink-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-pink-500/10 group">
-              <CardHeader>
+              <CardHeader className="pb-2">
                 <CardTitle className="text-xl text-white mb-2 group-hover:text-pink-400 transition-colors">
                   {project.title}
                 </CardTitle>
@@ -69,6 +113,53 @@ export const Projects = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                {project.media && project.media.length > 0 && (
+                  <div className="rounded-md overflow-hidden bg-black/20 h-48 mb-4">
+                    <Carousel className="w-full">
+                      <CarouselContent>
+                        {project.media.map((media, i) => (
+                          <CarouselItem key={i}>
+                            {media.type === "image" ? (
+                              <div className="relative h-48 w-full">
+                                <img 
+                                  src={media.url} 
+                                  alt={media.alt || project.title} 
+                                  className="w-full h-full object-cover rounded-md"
+                                />
+                                <div className="absolute top-2 right-2 bg-black/50 p-1 rounded-md">
+                                  <ImageIcon className="w-4 h-4 text-white" />
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="relative h-48 w-full cursor-pointer group" onClick={() => handleOpenVideo(media.url)}>
+                                <img 
+                                  src={media.thumbnail} 
+                                  alt={`${project.title} video thumbnail`} 
+                                  className="w-full h-full object-cover rounded-md"
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-all rounded-md">
+                                  <div className="bg-pink-500/80 rounded-full p-3 group-hover:scale-110 transition-transform">
+                                    <Play className="w-6 h-6 text-white" />
+                                  </div>
+                                </div>
+                                <div className="absolute top-2 right-2 bg-black/50 p-1 rounded-md">
+                                  <Play className="w-4 h-4 text-white" />
+                                </div>
+                              </div>
+                            )}
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      {project.media.length > 1 && (
+                        <>
+                          <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/70 border-none text-white" />
+                          <CarouselNext className="right-2 bg-black/50 hover:bg-black/70 border-none text-white" />
+                        </>
+                      )}
+                    </Carousel>
+                  </div>
+                )}
+
                 <div className="space-y-2">
                   <h4 className="text-sm font-semibold text-pink-400">Key Achievements:</h4>
                   <ul className="space-y-1">
@@ -103,6 +194,28 @@ export const Projects = () => {
             </Card>
           ))}
         </div>
+
+        {activeVideo && (
+          <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" onClick={handleCloseVideo}>
+            <div className="relative max-w-4xl w-full aspect-video" onClick={e => e.stopPropagation()}>
+              <iframe
+                src={activeVideo}
+                className="w-full h-full rounded-lg"
+                title="Project Demo Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+              <Button 
+                size="sm" 
+                variant="outline" 
+                onClick={handleCloseVideo}
+                className="absolute -top-10 right-0 text-white border-white hover:bg-white/20"
+              >
+                Close Video
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
