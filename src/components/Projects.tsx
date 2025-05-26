@@ -14,7 +14,7 @@ import {
 
 export const Projects = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
-
+  // https://www.youtube.com/watch?v=Mn_9W1nCFLo&pp=ygULbGxhbSBtb2RlbHM%3D
   const projects = [
     {
       title: "Palligemma Multi-Modal Model",
@@ -22,28 +22,31 @@ export const Projects = () => {
       achievements: ["Fine-tuned to achieve over 75% accuracy", "Multi-modal input processing", "Advanced output generation"],
       tags: ["Multi-Modal", "Computer Vision", "NLP", "Fine-tuning"],
       media: [
-        { type: "image", url: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7", alt: "AI model visualization" },
-        { type: "video", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7" }
+        { type: "image", url: "/assets/pyramids.png", alt: "AI model visualization" },
+        { type: "video", url: "https://www.youtube.com/embed/OMBmVInx68M", thumbnail: "/assets/paligemma.jpg" }
       ]
     },
+    
     {
       title: "LLaMA2 from Scratch",
       description: "Built complete LLaMA2 model from scratch, incorporating all key components and fine-tuning for sentiment analysis.",
       achievements: ["Built from scratch implementation", "Achieved over 92% accuracy", "Custom sentiment analysis fine-tuning"],
       tags: ["LLaMA", "Transformer", "Sentiment Analysis", "PyTorch"],
       media: [
-        { type: "image", url: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b", alt: "Code implementation" },
-        { type: "video", url: "https://www.youtube.com/embed/YDgUkQJL5h0", thumbnail: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" }
+        { type: "video", url: "https://www.youtube.com/embed/Mn_9W1nCFLo", thumbnail: "/assets/llama_architecutures.jpg" },
+        { type: "image", url: "/assets/llama_architecutures.jpg", alt: "Code implementation" }
       ]
     },
+
+    // https://www.youtube.com/watch?v=etjkjZoG2F0&pp=ygULeW9sbyBtb2RlbHM%3D
     {
       title: "Soccer AI with YOLOv8x",
       description: "Developed comprehensive Soccer AI system for real-time player and keypoint detection in soccer analysis.",
       achievements: ["95%+ precision and 85% recall for player detection", "99% precision and recall for keypoint detection", "Real-time processing"],
       tags: ["YOLOv8", "Computer Vision", "Real-time", "Sports Analytics"],
       media: [
-        { type: "video", url: "https://www.youtube.com/embed/SSEpWXZrY0I", thumbnail: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6" },
-        { type: "image", url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6", alt: "Soccer player detection" }
+        { type: "video", url: "https://www.youtube.com/embed/etjkjZoG2F0", thumbnail: "/assets/performance-comparison.png" },
+        { type: "image", url: "assets/1 (1).png", alt: "Soccer player detection" }
       ]
     },
     {
