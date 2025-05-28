@@ -55,7 +55,7 @@ export const Projects = () => {
       achievements: ["Real-time object detection and tracking", "Zone-based monitoring system", "Traffic flow analysis"],
       tags: ["YOLOv8", "Object Tracking", "Analytics", "Computer Vision"],
       media: [
-        { type: "image", url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158", alt: "Traffic analysis visualization" },
+        { type: "image", url: "assets/market.png", alt: "Traffic analysis visualization" },
         { type: "video", url: "https://www.youtube.com/embed/BLFeqq8Fags", thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" }
       ]
     },
@@ -65,7 +65,7 @@ export const Projects = () => {
       achievements: ["Character conversation simulation", "Relationship network analysis", "Theme identification system", "Text classification"],
       tags: ["Chatbot", "NLP", "Character AI", "Text Classification"],
       media: [
-        { type: "image", url: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5", alt: "Network analysis visualization" }
+        { type: "image", url: "/assets/4 (2).png", alt: "Network analysis visualization" }
       ]
     },
     {
