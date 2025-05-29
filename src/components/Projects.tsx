@@ -11,6 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { url } from "inspector";
 
 export const Projects = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
@@ -65,6 +66,7 @@ export const Projects = () => {
       achievements: ["Character conversation simulation", "Relationship network analysis", "Theme identification system", "Text classification"],
       tags: ["Chatbot", "NLP", "Character AI", "Text Classification"],
       media: [
+        {type: "image", url: "/assets/map_narto.png", alt: "Naruto character network map" },
         { type: "image", url: "/assets/4 (2).png", alt: "Network analysis visualization" }
       ]
     },
@@ -74,7 +76,7 @@ export const Projects = () => {
       achievements: ["90% F1 score achievement", "Zero-shot and Few-shot learning", "Advanced preprocessing pipeline", "Multiple model implementation"],
       tags: ["BERT", "T5", "LLaMA", "Classification", "MLOps"],
       media: [
-        { type: "image", url: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7", alt: "Classification results" }
+        { type: "image", url: "/assets/Screenshot 2024-09-29 at 6.52.02 PM.png", alt: "Classification results" }
       ]
     },
     {
